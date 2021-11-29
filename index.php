@@ -8,6 +8,7 @@ date_default_timezone_set('Europe/Moscow');
 // 1. Общие настройки
 //Запускаем сессию
 @ob_start();
+$_SESSION = array();
 session_start();
 ini_set('display_errors',1);
 error_reporting(E_ALL);

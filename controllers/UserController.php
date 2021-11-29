@@ -61,7 +61,7 @@ class UserController {
      * @return bool
      */
     public function actionLogin () {
-        ob_start();
+
 
         $email = '';
         $password = '';

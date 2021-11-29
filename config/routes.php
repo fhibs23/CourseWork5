@@ -2,16 +2,6 @@
 
 return array(
 
-    //оформление заказа
-    'cart/checkout' => 'cart/checkout',
-    //удаление товара из корзины
-    'cart/delete/([0-9]+)' => 'cart/delete/$1',
-    //добавление с помощью ajax
-    'cart/addAjax/([0-9]+)' => 'cart/addAjax/$1',
-    //Добавление товара в корзину
-    'cart/add/([0-9]+)' => 'cart/add/$1',
-
-    'cart' => 'cart/index',
 
     //Регистрация
     'user/register' => 'user/register', //actionRegister в UserController
@@ -23,36 +13,18 @@ return array(
     'user/logout' => 'user/logout',
 
     //Личный кабинет
-    'cabinet/orders' => 'cabinet/ordersList',
     'cabinet/edit' => 'cabinet/edit',
     'cabinet' => 'cabinet/index',
 
-    //Товар
+    //Работник
     'worker/([0-9]+)' => 'worker/view/$1', //actionView в WorkerController
 
-    //Категория товара
-    'category/([0-9]+)/page-([0-9]+)' => 'catalog/category/$1/$2', // actionCategory в CatalogController
-    'category/([0-9]+)' => 'catalog/category/$1', //actionCategory в CatalogController
 
-    //Каталог
-    'catalog/page-([0-9]+)' => 'catalog/index/$1',
-    'catalog' => 'catalog/index',
 
-    //Админпанель
-    'admin/orders/edit/([0-9]+)' => 'adminOrder/edit/$1',
-    'admin/orders/view/([0-9]+)' => 'adminOrder/view/$1',
-    'admin/orders/delete/([0-9]+)' => 'adminOrder/delete/$1',
-    'admin/orders' => 'adminOrder/index',
-
-    'admin/category/edit/([0-9]+)' => 'adminCategory/edit/$1',
-    'admin/category/add' => 'adminCategory/add',
-    'admin/category/delete/([0-9]+)' => 'adminCategory/delete/$1',
-    'admin/category' => 'adminCategory/index',
-
-    'admin/worker/edit/([0-9]+)' => 'adminWorker/edit/$1',
-    'admin/worker/add' => 'adminWorker/add',
-    'admin/worker/delete/([0-9]+)' => 'adminWorker/delete/$1',
-    'admin/worker' => 'adminWorker/index',
+    'user/worker/edit/([0-9]+)' => 'userWorker/edit/$1',
+    'user/worker/add' => 'userWorker/add',
+    'user/worker/delete/([0-9]+)' => 'userWorker/delete/$1',
+    'user/worker' => 'userWorker/index',
 
     'admin' => 'admin/index',
 

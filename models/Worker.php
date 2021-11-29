@@ -45,46 +45,11 @@ class Worker {
         return $workersList;
     }
 
-    /**
-     * Выводим товары по выбранной категории
-     *
-     * @param $catId id категории
-     * @param $page  - текущая страница
-     * @return array
-     */
-//    public static function getWorkerListByCatId ($catId, $page = 1) {
-//
-//        $limit = self::SHOW_BY_DEFAULT;
-//
-//        //Задаем смещение
-//        $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
-//
-//        $db = DB::getConnection();
-//
-//        $sql = "
-//                SELECT id, name,unit,position,date_of_employment FROM workers
-//                  WHERE status = 1 AND category_id = :category_id
-//                    ORDER BY id DESC LIMIT :limit OFFSET :offset
-//                ";
-//
-//        $res = $db->prepare($sql);
-//        $res->bindParam(':category_id', $catId, PDO::PARAM_INT);
-//        $res->bindParam(':limit', $limit, PDO::PARAM_INT);
-//        $res->bindParam(':offset', $offset, PDO::PARAM_INT);
-//
-//        $res->execute();
-//
-//        //Получение и возврат результатов
-//
-//        $products = $res->fetchAll(PDO::FETCH_ASSOC);
-//
-//        return $products;
-//    }
 
     /**
-     * Выбираем товар по идентификатору
+     * Выбираем работника по идентификатору
      *
-     * @param $productId
+     * @param $workerId
      * @return mixed
      */
     public static function getWorkerById ($workerId) {
@@ -105,33 +70,8 @@ class Worker {
         return $workers;
     }
 
-//    /**
-//     * Выборка товаров по массиву id
-//     *
-//     * @param $arrayIds
-//     * @return array
-//     */
-//    public static function getProductsByIds ($arrayIds) {
-//
-//        $db = Db::getConnection();
-//
-//        //Разбиваем пришедший массив в строку
-//        $stringIds = implode(',', $arrayIds);
-//
-//        $sql = "
-//                SELECT id, name, code, price FROM product
-//                WHERE status = 1 AND id IN ($stringIds)
-//                ";
-//
-//        $res = $db->query($sql);
-//
-//        $products = $res->fetchAll(PDO::FETCH_ASSOC);
-//
-//        return $products;
-//    }
-
     /**
-     * Выводит списко всех товраов
+     * Выводит список всех работников
      *
      * @return array
      */
@@ -152,7 +92,7 @@ class Worker {
     }
 
     /**
-     * Удаление товара(админка)
+     * Удаление работника
      *
      * @param $id
      * @return bool
@@ -170,9 +110,9 @@ class Worker {
     }
 
     /**
-     * Добавление продукта
+     * Добавление работника
      *
-     * @param $options - характеристики товара
+     * @param $options - характеристики работника
      * @return int|string
      */
     public static function addWorker ($options) {
@@ -203,7 +143,7 @@ class Worker {
     }
 
     /**
-     * Изменение товара
+     * Изменение работника
      *
      * @param $id
      * @param $options
@@ -237,36 +177,8 @@ class Worker {
         return $res->execute();
     }
 
-//    /**
-//     * Возвращает путь к изображению
-//     * @param integer $id
-//     * @return string <p>Путь к изображению</p>
-//     */
-//    public static function getImage ($id) {
-//
-//        // Название изображения-пустышки
-//        $noImage = 'no-image.jpg';
-//
-//        // Путь к папке с товарами
-//        $path = '/upload/images/products/';
-//
-//        // Путь к изображению товара
-//        $pathToProductImage = $path . $id . '.jpg';
-//
-//        if (file_exists($_SERVER['DOCUMENT_ROOT'] . $pathToProductImage)) {
-//            // Если изображение для товара существует
-//            // Возвращаем путь изображения товара
-//            return $pathToProductImage;
-//        }
-//
-//        // Возвращаем путь изображения-пустышки
-//        return $path . $noImage;
-//    }
-
-
-
     /**
-     * Общее кол-во товаров в магазине
+     * Общее кол-во работников
      *
      * @return mixed
      */

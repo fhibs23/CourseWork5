@@ -121,13 +121,11 @@ class User {
         $db = Db::getConnection();
 
         $sql = "
-                SELECT id, name, email,telephone, password, role
-                FROM user
+                SELECT * FROM user
                 WHERE email = :email AND password=:password
                 ";
 
         $res = $db->prepare($sql);
-
         $res->bindParam(':email', $email, PDO::PARAM_INT);
         $res->bindParam(':password', $password, PDO::PARAM_INT);
         $res->execute();
@@ -189,18 +187,17 @@ class User {
         $db = Db::getConnection();
 
         $sql = "
-                SELECT id, name, email,telephone, password, role
-                  FROM user
+                SELECT * FROM user
                     WHERE id = :id
                 ";
 
         $res = $db->prepare($sql);
 
-        $res->bindParam(':id', $userId);
-
+        $res->bindParam(':id', $userId, PDO::PARAM_INT);
+        $res->setFetchMode(PDO::FETCH_ASSOC);
         $res->execute();
 
-        return $res->fetch(PDO::FETCH_ASSOC);
+        return $res->fetch();
     }
 
     /**
